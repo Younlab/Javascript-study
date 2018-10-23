@@ -10,66 +10,19 @@
             line-height: 1.8;
         }
     </style>
-    <script>
-        var Body = {
-            SetTextColor:function (color){
-                document.querySelector('body').style.color = color;
-            },
-            SetBackgroundColor:function(color){
-                document.querySelector('body').style.backgroundColor = color;
-            }
-        }
-
-        var Link = {
-            SetColor:function (color){
-                var a_list = document.querySelectorAll('ul > li > a');
-                var i = 0
-                
-                while(i < a_list.length){
-                    a_list[i].style.color = color;
-                    ++i
-                }
-            },
-        }
-
-        function nightDayHandler(self){
-            if(self.value === 'toggle night'){
-                Body.SetBackgroundColor('black');
-                Body.SetTextColor('white');
-                self.value = 'toggle day';
-                Link.SetColor('powderblue')
-            } else {
-                Body.SetBackgroundColor('white');
-                Body.SetTextColor('black');
-                self.value = 'toggle night';
-                Link.SetColor('blue');
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>java script</h1>
+    <input type="button" value="toggle night" onclick="nightDayHandler(this);">
+
     <ul>
         <li><a href="">HTMLE</a></li>
         <li><a href="">CSS</a></li>
         <li><a href="">Javascript</a></li>
     </ul>
-    <!-- if and else 조건문 -->
-    <input id="night_day" type="button" value="toggle night" onclick="
-        if(this.value === 'toggle night'){
-            document.querySelector('body').style.backgroundColor = 'black';
-            document.querySelector('body').style.color = 'white';
-            this.value = 'toggle day';
-        } else {
-            document.querySelector('body').style.backgroundColor = 'white';
-            document.querySelector('body').style.color = 'black';
-            this.value = 'toggle night';
-        };
-    ">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quod temporibus perferendis delectus laborum nostrum inventore exercitationem, doloribus adipisci saepe! Non sint, doloremque eligendi aspernatur maiores officiis modi voluptatem quasi!</p>
     <!-- if and else 조건문, 자기 자신을 this 라 부르도록 약속된다. -->
     <!-- 조건문의 실용적 사례, 변수를 잘 활용, 반복되는 부분을 끝까지 추적하여 줄인다. -->
-    <input type="button" value="toggle night" onclick="nightDayHandler(this);">
-    
+    <script src="./js/color.js"></script>
 </body>
 </html>
