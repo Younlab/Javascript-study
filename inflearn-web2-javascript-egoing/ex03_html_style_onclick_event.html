@@ -10,6 +10,32 @@
             line-height: 1.8;
         }
     </style>
+    <script>
+        function nightDayHandler(self){
+            var a_list = document.querySelectorAll('ul > li > a');
+            var target = document.querySelector('body');
+
+            if(self.value === 'toggle night'){
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+                self.value = 'toggle day';
+                var i = 0
+                while(i < a_list.length){
+                    a_list[i].style.color = 'powderblue';
+                    ++i
+                }
+            } else {
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black';
+                self.value = 'toggle night';
+                var i = 0
+                while(i < a_list.length){
+                    a_list[i].style.color = 'blue';
+                    ++i
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>java script</h1>
@@ -18,15 +44,6 @@
         <li><a href="">CSS</a></li>
         <li><a href="">Javascript</a></li>
     </ul>
-    <!-- <input type="button" value="night" onclick="
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
-    ">
-    <input type="button" value="day" onclick="
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-    "> -->
-
     <!-- if and else 조건문 -->
     <input id="night_day" type="button" value="toggle night" onclick="
         if(this.value === 'toggle night'){
@@ -42,28 +59,6 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quod temporibus perferendis delectus laborum nostrum inventore exercitationem, doloribus adipisci saepe! Non sint, doloremque eligendi aspernatur maiores officiis modi voluptatem quasi!</p>
     <!-- if and else 조건문, 자기 자신을 this 라 부르도록 약속된다. -->
     <!-- 조건문의 실용적 사례, 변수를 잘 활용, 반복되는 부분을 끝까지 추적하여 줄인다. -->
-    <input type="button" value="toggle night" onclick="
-        var a_list = document.querySelectorAll('ul > li > a');
-        var target = document.querySelector('body');
-
-        if(this.value === 'toggle night'){
-            target.style.backgroundColor = 'black';
-            target.style.color = 'white';
-            this.value = 'toggle day';
-
-            for(var i in a_list){
-                a_list[i].style.color = 'powderblue';
-            };
-            
-        } else {
-            target.style.backgroundColor = 'white';
-            target.style.color = 'black';
-            this.value = 'toggle night';
-            for(var i in a_list){
-                a_list[i].style.color = 'blue';
-
-            };
-        };
-">
+    <input type="button" value="toggle night" onclick="nightDayHandler(this);">
 </body>
 </html>
