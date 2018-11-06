@@ -42,11 +42,32 @@ class App extends Component {
     });
   }
 
+  handleUpdate = (id, data) =>{
+    const {information} = this.state;
+    this.setState({
+      information:information.map(
+        info => {
+          if(info.id === id){
+            return{
+              id,
+              ...data,
+            };
+          }
+          return info;
+        }
+      )
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <PhoneForm onCreate={this.handleCreate} />
-        <PhonInfoList data={this.state.information} onRemove={this.handleRemove}/>
+        <PhonInfoList 
+        data={this.state.information}
+        onRemove={this.handleRemove}
+        onUpdate={this.handleUpdate}
+        />
       </div>
     );
   }

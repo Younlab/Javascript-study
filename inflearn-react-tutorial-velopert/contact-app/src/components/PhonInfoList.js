@@ -8,10 +8,10 @@ class PhonInfoList extends Component {
         data:[]    
     };
     render() {
-        const {data, onRemove} = this.props;
+        const {data, onRemove, onUpdate} = this.props;
         if (!data) return null;
         const list = data.map(
-            info => (<PhoneInfo onRemove={onRemove} info={info} key={info.id}/>)
+            info => (<PhoneInfo onRemove={onRemove} onUpdate={onUpdate} info={info} key={info.id}/>)
         );
 
         return (
