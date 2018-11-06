@@ -10,12 +10,27 @@ class App extends Component {
 
   handleCreate = (data) => {
     const { information } = this.state;
+    // # 1
+    // this.setState({
+    //   information: information.concat(
+    //     Object.assign({},data,{
+    //       id:this.id++
+    //     })
+    //   )
+    // })
+
+    // # 2
+    // this.setState({
+    //   information: information.concat({...data, id:this.id++})
+    // })
+
+    //# 3
     this.setState({
-      information: information.concat(
-        Object.assign({},data,{
-          id:this.id++
-        })
-      )
+      information: information.concat({
+        name:data.name,
+        phone:data.phone,
+        id:this.id++
+      })
     })
   }
   render() {
