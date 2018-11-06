@@ -33,6 +33,13 @@ class PhoneInfo extends Component {
             [e.target.name]: e.target.value
         })
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.state !== nextState){
+            return true;
+        }
+        return this.props.info !== nextProps.info;
+    }
+    
 
     render() {
         const {name, phone} = this.props.info;
@@ -42,6 +49,7 @@ class PhoneInfo extends Component {
             padding:'8px',
             margin:'8px',
         }
+        console.log(name)
         return (
 
             <div style={style}>

@@ -4,11 +4,27 @@ import PhonInfoList from './components/PhonInfoList';
 
 
 class App extends Component {
-  id = 0;
+  id = 3;
   state = {
-    information:[],
+    information:[
+      {
+        id:0,
+        name:'홍길동',
+        phone:'010-3393-5831'
+      },
+      {
+        id:1,
+        name:'김민준',
+        phone:'010-3393-5831'
+      },
+      {
+        id:2,
+        name:'윤세현',
+        phone:'010-3393-5831'
+      }
+    ],
   }
-
+  
   handleCreate = (data) => {
     const { information } = this.state;
     // # 1

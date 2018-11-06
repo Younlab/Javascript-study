@@ -13,6 +13,7 @@ class PhonInfoList extends Component {
         const list = data.map(
             info => (<PhoneInfo onRemove={onRemove} onUpdate={onUpdate} info={info} key={info.id}/>)
         );
+        console.log('rendering list');
 
         return (
             <div>
