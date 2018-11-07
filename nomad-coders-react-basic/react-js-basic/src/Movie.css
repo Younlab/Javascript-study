@@ -1,0 +1,56 @@
+.Movie{
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+    padding: 8px;
+    margin-top: 32px;
+
+}
+.Movie > .Movie-wrap{
+    border-radius: 3px;
+    background: #fff;
+    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,.3);
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,.3);
+}
+.Movie::after{
+    content: "";
+    display:block;
+    height: 0;
+    clear: both;
+}
+
+.Movie-Columns{
+    display: block;
+    box-sizing: border-box;
+    line-height: 1.8;
+    padding:16px 16px 16px 32px;
+    height: 250px;
+
+}
+
+.Movie-Columns:nth-of-type(2){
+    overflow-y:scroll;
+    
+}
+
+.Movie-Columns:nth-of-type(1){
+    float: left;
+}
+
+
+.Movie-Columns:nth-of-type(2) > h1{
+    font-size: 22px;
+    line-height: 1.5;
+    padding-bottom:16px;
+}
+
+.Movie-Columns > img{
+    width: 150px;
+    transform: translate(0, -40px);
+    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,.5);
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,.5);
+}
+
+.Movie-Synopsis{
+
+}
