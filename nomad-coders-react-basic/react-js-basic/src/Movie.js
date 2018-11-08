@@ -2,7 +2,7 @@ import React from 'react';
 import './Movie.css';
 import PropTypes from 'prop-types';
 
-
+// 함수형 컴포넌트, 멍청한 컴포넌트, state 가 없는 컴포넌트, this.props로 data를 전달받지 않고 key로 데이터를 전달받는다.
 function Movie({title, poster, genres, synopsis}){
     return (
         <div className="Movie">
