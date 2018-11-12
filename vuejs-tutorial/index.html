@@ -11,15 +11,26 @@
     <div id="app">
         <button>Parent Component</button>
         <my-component></my-component>
+        <my-local-component></my-local-component>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
+        // global component
         Vue.component('my-component',{
-            template:'<div>A custom component!</div>'
-        });
+            template:'<div>A global component!</div>'
+
+        })
+
+        // local component
+        const cmp = {
+            template:'<div>A local component!</div>'
+        }
 
         new Vue({
-            el:'#app'
+            el:'#app',
+            components:{
+                'my-local-component':cmp,
+            }
         })
     </script>
 </body>
