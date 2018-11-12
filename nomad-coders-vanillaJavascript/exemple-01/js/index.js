@@ -4,3 +4,4 @@ const a = 221;
 // let 는 변수, 즉 변할 수 있는 수로 const 와는 다르게 data 를 update 할 수 있다.
 let b = a -5;
 console.log(b);
+
