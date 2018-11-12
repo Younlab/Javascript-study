@@ -17,7 +17,7 @@ const LoginForm = {
                 <label for="password">Password :</label>
                 <input type="password" id="password">
             </div>
-        </from>
+        </form>
     `,
 }
 
@@ -42,6 +42,26 @@ const ListItems = {
     `
 }
 
+const Main = {
+    template:`
+        <div>
+            <h2>Main Section</h2>
+            <router-view></router-view>
+        </div>
+    `
+}
+
+const MainComponent = {
+    template:`
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    `
+}
+
 const routes = [
     {
         path:'/login',
@@ -55,6 +75,13 @@ const routes = [
         component:List,
         children:[
             {path:'',component:ListItems}
+        ]
+    },
+    {
+        path:'/main',
+        component:Main,
+        children:[
+            {path:'', component:MainComponent}
         ]
     }
 ]
