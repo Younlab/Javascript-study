@@ -9,42 +9,18 @@
 <body>
 
     <div id="app">
-        {{msg}}
+        <button>Parent Component</button>
+        <my-component></my-component>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
-    new Vue({
-        el:'#app',
-        data:{
-            msg:'hello vue.js',
-        },
-        // beforeCreate:function() {
-        //     console.log('beforeCreate');
-        // },
-        // created:function() {
-        //     console.log('create');
-        // },
-        // mounted:function() {
-        //     console.log('mounted');
-        // },
-        // updated:function() {
-        //     console.log('updated');
-        // },
-        beforeCreate() {
-            console.log('beforeCreate')
-        },
-        created() {
-            console.log('created')
-        },
-        mounted() {
-            console.log('mounted')
-            this.msg = '1'
-        },
-        updated() {
-            console.log('updated')
-        },
-    })
-    
+        Vue.component('my-component',{
+            template:'<div>A custom component!</div>'
+        });
+
+        new Vue({
+            el:'#app'
+        })
     </script>
 </body>
 </html>
