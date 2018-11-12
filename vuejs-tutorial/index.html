@@ -13,6 +13,11 @@
         <my-component></my-component>
         <my-local-component></my-local-component>
     </div>
+
+    <div id="app2">
+        <my-component></my-component>
+        <my-local-component></my-local-component>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
         // global component
@@ -28,6 +33,13 @@
 
         new Vue({
             el:'#app',
+            components:{
+                'my-local-component':cmp,
+            }
+        })
+
+        new Vue({
+            el:'#app2',
             components:{
                 'my-local-component':cmp,
             }
