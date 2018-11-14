@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li class="shadow" v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item">
+            <li class="shadow" v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item">
                 <i class="fas fa-check checkBtn" :class="{checkBtnCompleted: todoItem.completed}" @click="toggleComplate(todoItem, index)"></i>
                 <span :class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
                 <span class="removeBtn" @click="removeTodo(todoItem, index)">
@@ -14,37 +14,17 @@
 
 <script>
 export default {
-    data:function(){
-        return{
-            todoItems:[]
-        }
-    },
+    props:['propsdata'],
     methods:{
         removeTodo:function(todoItem, index){
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index,1);
+            this.$emit('removeItem', todoItem, index)
         },
         toggleComplate:function(todoItem, index){
-            todoItem.completed = !todoItem.completed;
-
-            // 로컬 스토리지에 데이터를 갱신하는 DOM
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+            this.$emit('toggleComplate', todoItem, index)
         },
+        
     },
-
-
-    created:function(){
-        if (localStorage.length > 0){
-            for (var i = 0; i < localStorage.length; i ++){
-                if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                    
-                }
-                
-            }
-        }
-    }
+    
 }
 </script>
 
