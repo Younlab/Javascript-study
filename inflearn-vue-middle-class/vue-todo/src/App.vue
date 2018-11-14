@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <todo-header></todo-header>
+
+    <!-- 하위 컴포넌트 이벤트 발생 감지 -->
     <todo-input @addTodoItem="addOneItem"></todo-input>
+
+    <!-- 데이터 하위 컴포넌트에 내려서 사용하게끔 전달 -->
     <todo-list :propsdata="todoItems" @removeItem="removeOneItem" @toggleComplate="toggleComplate"></todo-list>
+
+    <!-- 이벤트 발생시에 로컬 메소드 실행 -->
     <todo-footer @clearAll="clearAll"></todo-footer>
   </div>
 </template>
