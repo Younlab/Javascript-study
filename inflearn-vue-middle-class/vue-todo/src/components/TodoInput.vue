@@ -9,12 +9,14 @@
             you can use custom content here to overwrite
             default content
             -->
-            <h3 slot="header">경고!</h3>
+            <h3 slot="header">
+                경고!
+                <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+            </h3>
+
             <div slot="body">
                 <p>아무런 값도 입력하지 않았습니다.</p>
-                <p>값이 입력되지 않으면 Todo가 추가되지 않습니다.</p>
             </div>
-            <p slot="footer">copylight by Todo List</p>
         </modal>
     </div>
 </template>
@@ -35,6 +37,7 @@ export default {
             this.clearInput();
             } else {
                 this.showModal = !this.showModal
+
             }
 
         },
@@ -77,5 +80,9 @@ export default {
     .addBtn{
         color: white;
         vertical-align: middle;
+    }
+
+    .closeModalBtn{
+        color:#42b983;
     }
 </style>

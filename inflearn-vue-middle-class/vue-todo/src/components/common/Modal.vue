@@ -15,12 +15,6 @@
               default body
             </slot>
           </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-            </slot>
-          </div>
         </div>
       </div>
     </div>
