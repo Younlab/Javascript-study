@@ -27,7 +27,7 @@ export default {
   },
   methods:{
     addOneItem:function(todoItem){
-      var obj = {
+      const obj = {
           completed:false,
           item: todoItem,
       };
