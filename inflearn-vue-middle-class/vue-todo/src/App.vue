@@ -3,13 +3,13 @@
     <todo-header></todo-header>
 
     <!-- 하위 컴포넌트 이벤트 발생 감지 -->
-    <todo-input @addTodoItem="addOneItem"></todo-input>
+    <todo-input></todo-input>
 
     <!-- 데이터 하위 컴포넌트에 내려서 사용하게끔 전달 -->
-    <todo-list :propsdata="todoItems" @removeItem="removeOneItem" @toggleComplate="toggleComplate"></todo-list>
+    <todo-list></todo-list>
 
     <!-- 이벤트 발생시에 로컬 메소드 실행 -->
-    <todo-footer @clearAll="clearAll"></todo-footer>
+    <todo-footer></todo-footer>
   </div>
 </template>
 
@@ -26,39 +26,7 @@ export default {
     }
   },
   methods:{
-    addOneItem(todoItem){
-      const obj = {
-          completed:false,
-          item: todoItem,
-      };
-      localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
-    removeOneItem(todoItem, index){
-      localStorage.removeItem(todoItem.item);
-      this.todoItems.splice(index,1);
-    },
-    toggleComplate(todoItem, index){
-      this.todoItems[index].completed = !this.todoItems[index].completed
-      // 로컬 스토리지에 데이터를 갱신하는 DOM
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    },
-    clearAll(){
-      this.todoItems = []
-      localStorage.clear();
-    }
   },
-
-  created(){
-    if (localStorage.length > 0){
-        for (let i = 0; i < localStorage.length; i ++){
-          if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-            this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));     
-          }
-        }
-      }
-    },
   components:{
     //컴포넌트
     TodoHeader,
