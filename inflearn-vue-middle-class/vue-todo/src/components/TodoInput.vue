@@ -22,69 +22,65 @@
 </template>
 
 <script>
-import Modal from './common/Modal.vue';
+import Modal from "./common/Modal.vue";
 export default {
-    data(){
-        return {
-            newTodoItem:"",
-            showModal:false,
-        }
+  data() {
+    return {
+      newTodoItem: "",
+      showModal: false
+    };
+  },
+  methods: {
+    addTodo() {
+      if (this.newTodoItem !== "") {
+        // this.$emit('addTodoItem', this.newTodoItem)
+        const text = this.newTodoItem.trim();
+        this.$store.commit("addOneItem", text);
+        this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
+      }
     },
-    methods:{
-        addTodo(){
-            if(this.newTodoItem !== ''){
-            // this.$emit('addTodoItem', this.newTodoItem)
-            const text = this.newTodoItem.trim();
-            this.$store.commit('addOneItem', text);
-            this.clearInput();
-            } else {
-                this.showModal = !this.showModal
-
-            }
-
-        },
-        clearInput(){
-            this.newTodoItem = '';
-        }
-    },
-    components:{
-        Modal
+    clearInput() {
+      this.newTodoItem = "";
     }
-}
+  },
+  components: {
+    Modal
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-    input:focus{
-        outline:none;
-    }
-    .inputBox{
-        background: white;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 5px;
+input:focus {
+  outline: none;
+}
+.inputBox {
+  background: white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
 
-    }
+.inputBox input {
+  border-style: none;
+  font-size: 0.9rem;
+}
 
-    .inputBox input{
-        border-style: none;
-        font-size: 0.9rem;
-    }
+.addContainer {
+  float: right;
+  background: linear-gradient(to right, #6478fb, #8763fb);
+  display: block;
+  width: 3rem;
+  border-radius: 0 5px 5px 0;
+}
 
+.addBtn {
+  color: white;
+  vertical-align: middle;
+}
 
-    .addContainer{
-        float: right;
-        background: linear-gradient(to right, #6478fb, #8763fb);
-        display: block;
-        width: 3rem;
-        border-radius: 0 5px 5px 0;
-    }
-
-    .addBtn{
-        color: white;
-        vertical-align: middle;
-    }
-
-    .closeModalBtn{
-        color:#42b983;
-    }
+.closeModalBtn {
+  color: #42b983;
+}
 </style>
