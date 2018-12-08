@@ -53,6 +53,7 @@ function paintToDo(text) {
     toDoList.appendChild(li);
     toDos.push(toDoObj);
     saveToDos();
+    ``;
   }
 }
 
