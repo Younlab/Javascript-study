@@ -34,22 +34,26 @@ function saveToDos() {
 function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
-  delBtn.addEventListener("click", deleteToDo);
   const span = document.createElement("span");
   const newId = toDos.length + 1;
   const toDoObj = {
     text: text,
     id: newId
   };
-  delBtn.innerText = "DELETE";
-  span.innerText = text;
-  li.appendChild(delBtn);
-  li.appendChild(span);
-  li.id = newId;
-  toDoList.appendChild(li);
-
-  toDos.push(toDoObj);
-  saveToDos();
+  if (toDoObj.text === "") {
+    return alert("공백입니다.");
+  } else {
+    delBtn.type = "button";
+    delBtn.addEventListener("click", deleteToDo);
+    delBtn.innerText = "DELETE";
+    span.innerText = text;
+    li.appendChild(delBtn);
+    li.appendChild(span);
+    li.id = newId;
+    toDoList.appendChild(li);
+    toDos.push(toDoObj);
+    saveToDos();
+  }
 }
 
 function handleSubmit(evt) {
