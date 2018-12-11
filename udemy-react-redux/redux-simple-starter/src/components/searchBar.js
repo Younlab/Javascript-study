@@ -14,14 +14,21 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
-        <input
-          value={this.state.term}
-          onChange={evt => this.onInputChange(evt.target.value)}
-        />
+        <form onSubmit={evt => this.onSubmit(evt)}>
+          <input
+            value={this.state.term}
+            onChange={term => this.setState({ term: term.target.value })}
+            // onChange={evt => this.onInputChange(evt.target.value)}
+          />
+        </form>
       </div>
     );
   }
-
+  onSubmit(evt) {
+    console.log(evt);
+    evt.preventDefault();
+    this.props.onSearchTernChange(this.state.term);
+  }
   onInputChange(term) {
     this.setState({ term });
     this.props.onSearchTernChange(term);

@@ -35,7 +35,7 @@ class App extends Component {
 
     return (
       <div>
-        <SearchBar onSearchTernChange={videoSearch} />
+        <SearchBar onSearchTernChange={term => this.videoSearch(term)} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
