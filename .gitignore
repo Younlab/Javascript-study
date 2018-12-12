@@ -1,5 +1,6 @@
 # custom
 .secret.js
+secret.json
 
 # Created by https://www.gitignore.io/api/macos,windows,visualstudiocode
 /inflearn-vue-tutorial/lecture-vue
