@@ -13,10 +13,12 @@ class Counter extends Component {
     ];
     this.props.handleSetColor(color);
   };
+
   render() {
     const color = this.props.color;
     const style = {
-      background: `rgb(${color[0]},${color[1]},${color[2]})`
+      background: `rgb(${color[0]},${color[1]},${color[2]})`,
+      padding: "16px"
     };
     return (
       <div style={style}>
