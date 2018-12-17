@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import Movie from "./components/Movie";
 import axios from "axios";
 import "./App.css";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getApiAxios } from "./components/actions";
 
 class App extends Component {
-  state = {};
+  // state = {};
+
   componentDidMount() {
-    this._getMovies();
+    this.props.getApiAxios();
+  }
+  componentDidUpdate() {
+    console.log("update", this.props.movies[0]);
   }
 
   _getMovies = async () => {
@@ -30,7 +37,7 @@ class App extends Component {
       });
   };
   _renderMovies = () => {
-    const movies = this.state.movies.map(movie => {
+    const movies = this.props.movies[0].map(movie => {
       return (
         <Movie
           title={movie.title}
@@ -45,10 +52,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.movies ? this._renderMovies() : "loading..."}
+        {this.props.movies[0] ? this._renderMovies() : "loading..."}
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps({ movies }) {
+  return {
+    movies
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getApiAxios }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
