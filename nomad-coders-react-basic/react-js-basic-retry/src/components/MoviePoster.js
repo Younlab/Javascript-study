@@ -1,9 +1,9 @@
 import React from "react";
 
-const MoviePoster = ({ poster }) => {
+const MoviePoster = ({ title, poster }) => {
   return (
     <div>
-      <img src={poster} alt="starwars" width="100%" />
+      <img src={poster} alt={title} />
     </div>
   );
 };
