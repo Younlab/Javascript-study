@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import "./Movie.css";
+import MoviePoster from "./MoviePoster";
+import "./styles/Movie.css";
+
 class Movie extends Component {
   render() {
     return (
       <div>
-        <h1>hello this is a movie</h1>
+        <h2>{this.props.title}</h2>
+        <MoviePoster poster={this.props.poster} />
       </div>
     );
   }
