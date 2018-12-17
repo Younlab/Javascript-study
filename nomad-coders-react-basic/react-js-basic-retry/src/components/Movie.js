@@ -2,12 +2,19 @@ import React from "react";
 import MoviePoster from "./MoviePoster";
 import "./styles/Movie.css";
 import PropTypes from "prop-types";
-
-const Movie = ({ title, poster }) => {
+import LinesEllipsis from "react-lines-ellipsis";
+const Movie = ({ title, poster, description }) => {
   return (
     <div>
       <h2>{title}</h2>
       <MoviePoster title={title} poster={poster} />
+      <LinesEllipsis
+        text={description}
+        maxLine="2"
+        ellipsis="..."
+        trimRight
+        basedOn="letters"
+      />
     </div>
   );
 };
