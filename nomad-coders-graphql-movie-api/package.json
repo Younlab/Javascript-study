@@ -1,0 +1,9 @@
+{
+  "name": "nomad-coders-graphql-movie-api",
+  "version": "1.0.0",
+  "description": "Movie API with Graphql",
+  "main": "index.js",
+  "repository": "https://github.com/Younlab/Javascript-study/tree/master/nomad-coders-graphql-movie-api",
+  "author": "Sehyeon Youn",
+  "license": "MIT"
+}
