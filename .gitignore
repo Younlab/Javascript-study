@@ -1,7 +1,7 @@
 # custom
 .secret.js
 secret.json
-./nomad-coders-graphql-movie-api/node-module/
+nomad-coders-graphql-movie-api/node_modules/
 
 # Created by https://www.gitignore.io/api/macos,windows,visualstudiocode
 /inflearn-vue-tutorial/lecture-vue
