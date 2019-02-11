@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { HOME_PAGE } from "./queries";
+import Movie from "./Movie";
 const Home = () => (
   <Query query={HOME_PAGE}>
     {({ loading, data, error }) => {
@@ -9,11 +10,13 @@ const Home = () => (
       if (data) {
         console.log(data);
         return data.movies.map(movie => (
-          <div key={movie.id}>
-            <h3>{movie.title}</h3>
-            <h4>{movie.rating}</h4>
-            <img src={movie.medium_cover_image} alt={movie.title} />
-          </div>
+          <Movie
+            id={movie.id}
+            title={movie.title}
+            poster={movie.medium_cover_image}
+            rating={movie.rating}
+            key={movie.id}
+          />
         ));
       }
     }}
